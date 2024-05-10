@@ -15,7 +15,7 @@ public class InstrumentosApplication {
 		SpringApplication.run(InstrumentosApplication.class, args);
 	}
 
-	@Bean
+	/*@Bean
 	public CommandLineRunner initData(CategoriaService categoriaService) {
 		return args -> {
 			Categoria cuerda = new Categoria("Cuerda");
@@ -30,6 +30,6 @@ public class InstrumentosApplication {
 			categoriaService.guardarCategoria(teclado);
 			categoriaService.guardarCategoria(electronico);
 		};
-	}
+	}*/
 
 }

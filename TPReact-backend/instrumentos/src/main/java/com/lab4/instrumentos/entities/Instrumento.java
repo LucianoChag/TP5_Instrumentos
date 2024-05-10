@@ -36,5 +36,5 @@ public class Instrumento {
     private boolean activo;
     @ManyToOne
     @JoinColumn(name = "categoria_fk")
-    private Categoria idCategoria;
+    private Categoria categoria;
 }

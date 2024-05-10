@@ -1,5 +1,6 @@
 package com.lab4.instrumentos.services;
 
+import com.lab4.instrumentos.entities.Categoria;
 import com.lab4.instrumentos.entities.Instrumento;
 import com.lab4.instrumentos.repositories.InstrumentoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,6 +52,11 @@ public class InstrumentoService {
         } else {
             throw new RuntimeException("La categoría no se puede eliminar porque no existe.");
         }
+    }
+
+    // Método para buscar instrumentos por categoría
+    public List<Instrumento> buscarPorCategoria(Categoria categoria) {
+        return instrumentoRepository.findByCategoria(categoria);
     }
     
 }
