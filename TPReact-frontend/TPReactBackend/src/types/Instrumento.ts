@@ -6,9 +6,9 @@ interface Instrumento extends DataModel<Instrumento>{
     marca: string;
     modelo: string;
     imagen: string;
-    precio: Int16Array;
-    costo_envio: Int16Array;
-    cantidad_vendida: Int16Array;
+    precio: number;
+    costo_envio: number;
+    cantidad_vendida: number;
     descripcion: string;
     activo: boolean;
     categoria: Categoria;
