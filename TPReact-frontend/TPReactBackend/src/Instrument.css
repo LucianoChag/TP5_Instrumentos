@@ -1,0 +1,42 @@
+.instrumento {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin:0; 
+}
+
+.Articulo {
+    display: flex;
+    width: calc(100%); 
+    max-width: 1800px;
+    max-height: 220px;
+    border-bottom: 1px solid #ccc; 
+    padding-bottom: 20px;
+    padding-top: 10px; /* Mover el contenido hacia arriba */
+}
+
+.imagen-instrumento {
+  flex: none;
+  width: 160px;
+  height: 160px;
+  margin-right: 20px;
+  overflow: hidden;
+}
+
+.imagen-instrumento img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.detalles {
+  flex: 1;
+  padding: 10px;
+}
+
+.boton {
+  max-height: 38px;
+}
+
+
+  
