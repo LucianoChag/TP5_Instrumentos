@@ -8,8 +8,14 @@ import { toggleModal } from "../../redux/slices/modal";
 import Swal from "sweetalert2"; // Importa SweetAlert2
 import InstrumentoService from "../../services/InstrumentoService";
 
-const ModalInstrumentos: React.FC<{ getInstrumentos: () => void }> = ({
+interface ModalInstrumentosProps {
+  getInstrumentos: () => void;
+  instrumentoActivo: Instrumento; // Agrega esta propiedad a la interfaz de props
+}
+
+const ModalInstrumentos: React.FC<ModalInstrumentosProps> = ({
   getInstrumentos,
+  instrumentoActivo, // Agrega esta propiedad a la desestructuración
 }) => {
   const [successMessage, setSuccessMessage] = useState<string>("");
   const instrumentoService = new InstrumentoService(); // Instancia InstrumentoService
@@ -27,13 +33,15 @@ const ModalInstrumentos: React.FC<{ getInstrumentos: () => void }> = ({
     descripcion: "",
     activo: false,
     categoria: {
-        id: 0,
-        denominacion: ""
+      id: 0,
+      denominacion: "",
     },
   };
 
+  
+
   const modal = useAppSelector((state) => state.modal.modal);
-  const elementActive = useAppSelector((state) => state.table.setElementActive);
+  const elementActive = useAppSelector((state) => state.tabla.elementActive);
   const dispatch = useAppDispatch();
 
   const handleClose = () => {
@@ -120,92 +128,8 @@ const ModalInstrumentos: React.FC<{ getInstrumentos: () => void }> = ({
                     component="div"
                   />
 
-                  <label htmlFor="marca">Marca:</label>
-                  <Field
-                    name="marca"
-                    type="text"
-                    placeholder="marca"
-                    className="form-control my-2"
-                  />
-                  <ErrorMessage
-                    name="marca"
-                    className="error-message"
-                    component="div"
-                  />
+                  {/* Resto de tus campos de formulario */}
 
-                  <label htmlFor="modelo">Modelo:</label>
-                  <Field
-                    name="Modelo"
-                    type="text"
-                    placeholder="modelo"
-                    className="form-control my-2"
-                  />
-                  <ErrorMessage
-                    name="modelo"
-                    className="error-message"
-                    component="div"
-                  />
-                  <label htmlFor="descripcion">Descripcion:</label>
-                  <Field
-                    name="descripcion"
-                    type="text"
-                    placeholder="descripcion"
-                    className="form-control my-2"
-                  />
-                  <ErrorMessage
-                    name="descripcion"
-                    className="error-message"
-                    component="div"
-                  />
-                  <label htmlFor="imagen">Imagen:</label>
-                  <Field
-                    name="imagen"
-                    type="text"
-                    placeholder="imagen"
-                    className="form-control my-2"
-                  />
-                  <ErrorMessage
-                    name="imagen"
-                    className="error-message"
-                    component="div"
-                  />
-                  <label htmlFor="precio">Precio:</label>
-                  <Field
-                    name="precio"
-                    type="text"
-                    placeholder="precio"
-                    className="form-control my-2"
-                  />
-                  <ErrorMessage
-                    name="precio"
-                    className="error-message"
-                    component="div"
-                  />
-                  <label htmlFor="costo_envio">Costo de Envio:</label>
-                  <Field
-                    name="costo_envio"
-                    type="text"
-                    placeholder="costo_envio"
-                    className="form-control my-2"
-                  />
-                  <ErrorMessage
-                    name="costo_envio"
-                    className="error-message"
-                    component="div"
-                  />
-                  <label htmlFor="cantidad_Vendida">Cantidad Vendida:</label>
-                  <Field
-                    name="cantidad_Vendida"
-                    type="text"
-                    placeholder="cantidad_Vendida"
-                    className="form-control my-2"
-                  />
-                  <ErrorMessage
-                    name="cantidad_Vendida"
-                    className="error-message"
-                    component="div"
-                  />
-                  {/* Agrega otros campos necesarios para el intrumento */}
                 </div>
                 <div className="d-flex justify-content-end">
                   <Button

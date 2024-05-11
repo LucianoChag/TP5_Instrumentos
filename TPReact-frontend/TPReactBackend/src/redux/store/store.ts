@@ -2,6 +2,7 @@ import { configureStore } from '@reduxjs/toolkit'
 import { instrumentoSlice } from '../slices/instrumentoSlice'
 import categoriaSlice from '../slices/categoriaSlice'
 import modal from '../slices/modal'
+import tabla from '../slices/tabla'
 
 
 export const store = configureStore({
@@ -9,6 +10,7 @@ export const store = configureStore({
     instrumento: instrumentoSlice.reducer,
     categoria: categoriaSlice,
     modal: modal,
+    tabla: tabla,
   },
 })
 
